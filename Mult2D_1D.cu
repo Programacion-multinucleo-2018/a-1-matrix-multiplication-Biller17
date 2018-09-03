@@ -13,7 +13,7 @@ using namespace std;
 
 
 
-
+//inicialization of matrices
 void initialData(int *ip, const int size)
 {
     int i;
@@ -26,7 +26,7 @@ void initialData(int *ip, const int size)
     return;
 }
 
-
+//printing matrices
 void printArray(int * arr, int size)
 {
   int totalSize = size * size;
@@ -40,7 +40,7 @@ void printArray(int * arr, int size)
   }
 }
 
-
+//matrix multiplication with cpu
 void multiplyMatrixOnHost(int *A, int *B, int *C, const int nx,
                      const int ny)
 {
@@ -55,7 +55,7 @@ void multiplyMatrixOnHost(int *A, int *B, int *C, const int nx,
     return;
 }
 
-
+//comparing cpu matrix wiht gpu matrix
 void checkResult(int *hostRef, int *gpuRef, const int N)
 {
     double epsilon = 1.0E-8;
@@ -79,6 +79,8 @@ void checkResult(int *hostRef, int *gpuRef, const int N)
 
 
 
+
+//matrix multiplicacion using gpu on 2d1d setting
 __global__ void multiplyMatrixOnGPU2D1D(int *MatA, int *MatB, int *MatC, int nx,
                                   int ny)
 {

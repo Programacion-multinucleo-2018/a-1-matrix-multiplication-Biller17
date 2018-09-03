@@ -15,7 +15,7 @@ using namespace std;
 
 
 
-
+//inicialization of matrices
 void initialData(int *ip, const int size)
 {
     int i;
@@ -28,7 +28,7 @@ void initialData(int *ip, const int size)
     return;
 }
 
-
+//printing arrays
 void printArray(int * arr, int size)
 {
   int totalSize = size * size;
@@ -43,6 +43,7 @@ void printArray(int * arr, int size)
 }
 
 
+//multiplication of matrices using cpu
 void multiplyMatrixOnHost(int *A, int *B, int *C, const int nx,
                      const int ny)
 {
@@ -57,7 +58,7 @@ void multiplyMatrixOnHost(int *A, int *B, int *C, const int nx,
     return;
 }
 
-
+//checking result of gpu and comparing them with cpu matrix
 void checkResult(int *hostRef, int *gpuRef, const int N)
 {
     double epsilon = 1.0E-8;
@@ -79,7 +80,10 @@ void checkResult(int *hostRef, int *gpuRef, const int N)
         printf("Arrays do not match.\n\n");
 }
 
-// grid 2D block 2D
+
+
+
+//matrix calculation using cpu
 __global__ void multMatrixOnGPU2D(int *MatA, int *MatB, int *MatC, int nx,
     int ny)
 {
@@ -94,6 +98,9 @@ __global__ void multMatrixOnGPU2D(int *MatA, int *MatB, int *MatC, int nx,
         }
     }
 }
+
+
+
 
 int main(int argc, char **argv)
 {

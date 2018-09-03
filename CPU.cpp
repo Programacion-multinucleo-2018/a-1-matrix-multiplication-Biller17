@@ -22,7 +22,7 @@ void printArray(int ** array, int size){
 }
 
 
-
+//matrix generation
 int** generateData(int size){
   int** array = new int*[size];
   for(int i = 0; i < size; i++){
@@ -35,6 +35,8 @@ int** generateData(int size){
   return array;
 }
 
+
+//matrix multiplication with linear processing
 int ** multiplyMatrices(int** matrixA, int ** matrixB, int size){
   int ** multiplication  = new int*[size];
   for(int i = 0; i < size; i++){

@@ -25,7 +25,7 @@ void printArray(int ** array, int size){
 }
 
 
-
+//generating matrices
 int** generateData(int size){
   int** array = new int*[size];
   for(int i = 0; i < size; i++){
@@ -40,20 +40,7 @@ int** generateData(int size){
 
 
 
-//
-// int * multiplyMatrices(int** matrixA, int ** matrixB, int size){
-//   int ** multiplication  = new int*[size];
-//   for(int i = 0; i < size; i++){
-//     multiplication[i] = new int[size];
-//     for(int j = 0; j < size; j++){
-//       for(int k = 0; k < size; k++){
-//         multiplication[i][j] += matrixA[i][k] * matrixB[k][j];
-//       }
-//     }
-//   }
-//   return multiplication;
-// }
-
+//matrix multiplication using threads
 int * multiplyMatrices(int** matrixA, int ** matrixB, int size, int threadID){
 	int * multiplication = new int[size];
 	for(int j = 0; j < size; j++){

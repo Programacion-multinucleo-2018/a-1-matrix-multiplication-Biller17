@@ -13,6 +13,7 @@ using namespace std;
 
 
 
+//initialization of matrices
 void initialData(int *ip, const int size)
 {
     int i;
@@ -25,6 +26,7 @@ void initialData(int *ip, const int size)
     return;
 }
 
+//printing matrices
 void printArray(int * arr, int size)
 {
   int totalSize = size * size;
@@ -38,6 +40,9 @@ void printArray(int * arr, int size)
   }
 }
 
+
+
+//multiplication using cpu
 void multiplyMatrixOnHost(int *A, int *B, int *C, const int nx,
                      const int ny)
 {
@@ -53,6 +58,8 @@ void multiplyMatrixOnHost(int *A, int *B, int *C, const int nx,
 }
 
 
+
+//comparing cpu matrix with gpu matrix
 void checkResult(int *hostRef, int *gpuRef, const int N)
 {
     double epsilon = 1.0E-8;
@@ -74,7 +81,10 @@ void checkResult(int *hostRef, int *gpuRef, const int N)
         printf("Arrays do not match.\n\n");
 }
 
-// grid 1D block 1D
+
+
+
+//matrix multiplication using 1D on gpu
 __global__ void multiplyMatrixOnGPU1D(int *MatA, int *MatB, int *MatC, int nx, int ny)
 {
     unsigned int ix = threadIdx.x + blockIdx.x * blockDim.x;
